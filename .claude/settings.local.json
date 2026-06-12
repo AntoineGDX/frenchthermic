@@ -31,7 +31,18 @@
       "Bash(cp -r /tmp/design/french-thermic/project/* design-preview/)",
       "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" --version)",
       "Bash(\"/c/Users/a.goudinoux/AppData/Local/Programs/Python/Python314/python.exe\" -m http.server 8123)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8123/ui_kits/website/index.html)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8123/ui_kits/website/index.html)",
+      "Bash(cp -r design-preview/assets .)",
+      "Bash(cp -r design-preview/tokens .)",
+      "Bash(cp design-preview/styles.css .)",
+      "Bash(cp design-preview/_ds_bundle.js .)",
+      "Bash(cp -r design-preview/components .)",
+      "Bash(rm -rf design-preview/* design-preview/.[^.]*)",
+      "Bash(rmdir design-preview *)",
+      "Bash(sed -n '110/Frenchthermic_dd06d0/Q')",
+      "Bash(awk '/components\\\\/core\\\\/Button.jsx/,/components\\\\/core\\\\/Card.jsx/' _ds_bundle.js)",
+      "Bash(awk '/components\\\\/core\\\\/Card.jsx/,/components\\\\/core\\\\/IconButton.jsx/' _ds_bundle.js)",
+      "Bash(git add *)"
     ]
   }
 }
