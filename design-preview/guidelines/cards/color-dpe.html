@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="DPE energy scale" subtitle="Diagnostic de Performance Énergétique — A→G class colors" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 24px 20px; display: flex; align-items: center; gap: 0; }
+  .step { display: flex; align-items: center; color: #1a2422; font: var(--fw-extra) 20px/1 var(--font-display); height: 52px; padding-left: 18px; position: relative; }
+  .step::after { content: ""; position: absolute; right: -22px; top: 0; border-top: 26px solid transparent; border-bottom: 26px solid transparent; border-left: 22px solid var(--_c); z-index: 1; }
+  .step:last-child::after { display: none; }
+  .step { background: var(--_c); }
+  .a { --_c: var(--dpe-a); width: 78px; }
+  .b { --_c: var(--dpe-b); width: 92px; }
+  .c { --_c: var(--dpe-c); width: 106px; }
+  .d { --_c: var(--dpe-d); width: 120px; }
+  .e { --_c: var(--dpe-e); width: 134px; }
+  .f { --_c: var(--dpe-f); width: 148px; }
+  .g { --_c: var(--dpe-g); width: 162px; color: #fff; }
+  .light { color: #fff; }
+</style></head>
+<body>
+  <div class="step a">A</div>
+  <div class="step b">B</div>
+  <div class="step c">C</div>
+  <div class="step d">D</div>
+  <div class="step e">E</div>
+  <div class="step f light">F</div>
+  <div class="step g">G</div>
+</body></html>

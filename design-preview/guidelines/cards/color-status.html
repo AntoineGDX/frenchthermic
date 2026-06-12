@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Status" subtitle="Success, warning, danger, info — with soft tints" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 20px; display: flex; gap: 14px; }
+  .item { flex: 1; }
+  .bar { height: 64px; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+  .tint { height: 30px; border-radius: 0 0 var(--radius-md) var(--radius-md); display: flex; align-items: center; padding: 0 12px; }
+  .lbl { font: var(--fw-bold) 13px/1 var(--font-sans); color: #fff; padding: 10px 12px; }
+  .barwrap { position: relative; }
+  .barwrap .lbl { position: absolute; bottom: 0; }
+  .tint span { font: var(--fw-semibold) 11px/1 var(--font-sans); }
+</style></head>
+<body>
+  <div class="item">
+    <div class="barwrap"><div class="bar" style="background:var(--success-500)"></div><span class="lbl">Success</span></div>
+    <div class="tint" style="background:var(--success-100)"><span style="color:var(--success-500)">#2e8b6f</span></div>
+  </div>
+  <div class="item">
+    <div class="barwrap"><div class="bar" style="background:var(--warning-500)"></div><span class="lbl">Warning</span></div>
+    <div class="tint" style="background:var(--warning-100)"><span style="color:var(--warning-500)">#e0a33c</span></div>
+  </div>
+  <div class="item">
+    <div class="barwrap"><div class="bar" style="background:var(--danger-500)"></div><span class="lbl">Danger</span></div>
+    <div class="tint" style="background:var(--danger-100)"><span style="color:var(--danger-500)">#c0492f</span></div>
+  </div>
+  <div class="item">
+    <div class="barwrap"><div class="bar" style="background:var(--info-500)"></div><span class="lbl">Info</span></div>
+    <div class="tint" style="background:var(--info-100)"><span style="color:var(--info-500)">#1e837e</span></div>
+  </div>
+</body></html>

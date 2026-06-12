@@ -1,0 +1,14 @@
+/* ============================================================
+   FRENCH THERMIC — Webfonts
+   ------------------------------------------------------------
+   Display : Sora    (geometric, echoes the bold logo caps)
+   Text/UI : Manrope (clean, warm humanist grotesque)
+
+   NOTE: Loaded from the Google Fonts CDN. The real frenchthermic.fr
+   site is a WordPress / Divi build whose font files are behind a
+   password wall, so these are a close, freely-licensed match.
+   Swap the @import for self-hosted @font-face rules if you have the
+   licensed binaries.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');

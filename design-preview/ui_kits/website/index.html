@@ -1,0 +1,106 @@
+<!-- @dsCard group="Website" viewport="1280x760" name="Marketing site — homepage" -->
+<!-- @startingPoint section="Website" subtitle="French Thermic marketing homepage" viewport="1280x900" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRENCH THERMIC — Confort thermique sans compromis</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html, body { margin: 0; }
+  .ft-mobile-only { display: none; }
+  .ft-range { height: 6px; border-radius: 999px; }
+  @media (max-width: 880px) {
+    .ft-desktop-nav { display: none !important; }
+    .ft-mobile-only { display: inline-flex !important; }
+    .ft-phone { display: none !important; }
+    .ft-hero-grid { grid-template-columns: 1fr !important; }
+    .ft-footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+
+<script>
+  // Hydrate [data-ico="LucideName"] spans with real Lucide SVGs (kept in sync across React re-renders)
+  function ftHydrateIcons() {
+    if (!window.lucide) return;
+    document.querySelectorAll('[data-ico]').forEach((el) => {
+      const name = el.getAttribute('data-ico');
+      const size = el.getAttribute('data-ico-size') || 20;
+      const sig = name + ':' + size;
+      if (el.__icoSig === sig && el.firstChild) return;
+      const icon = window.lucide[name];
+      if (!icon) return;
+      const svg = window.lucide.createElement(icon);
+      svg.setAttribute('width', size); svg.setAttribute('height', size);
+      svg.setAttribute('stroke-width', '2');
+      el.innerHTML = ''; el.appendChild(svg); el.__icoSig = sig;
+    });
+  }
+  window.ftHydrateIcons = ftHydrateIcons;
+</script>
+
+<script type="text/babel" src="SiteHeader.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Services.jsx"></script>
+<script type="text/babel" src="DpeSection.jsx"></script>
+<script type="text/babel" src="ContactSection.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+  const { useState, useEffect } = React;
+
+  function TrustBand() {
+    const items = [['ShieldCheck', 'Certifié RGE'], ['BadgeCheck', 'Garantie décennale'], ['Leaf', 'Aides MaPrimeRénov’'], ['Clock', 'Réponse sous 24h']];
+    return (
+      <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--color-surface)' }}>
+        <div style={{ maxWidth: 'var(--container)', margin: '0 auto', padding: '22px 24px', display: 'flex', gap: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
+          {items.map(([ic, t]) => (
+            <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 10, font: 'var(--fw-semibold) 14px/1 var(--font-sans)', color: 'var(--text-body)' }}>
+              <span data-ico={ic} data-ico-size="20" style={{ color: 'var(--color-primary)', display: 'flex' }} />{t}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  function App() {
+    const [, setRoute] = useState('home');
+    const onNavigate = (r) => {
+      setRoute(r);
+      if (r === 'contact') document.getElementById('contact')?.scrollTo;
+      const id = r === 'contact' ? 'contact' : null;
+      if (id) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); }
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    useEffect(() => { window.ftHydrateIcons(); });
+    return (
+      <React.Fragment>
+        <SiteHeader onNavigate={onNavigate} />
+        <Hero onNavigate={onNavigate} />
+        <TrustBand />
+        <Services onNavigate={onNavigate} />
+        <DpeSection />
+        <ContactSection />
+        <SiteFooter />
+      </React.Fragment>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  // keep icons hydrated as React updates the tree
+  const mo = new MutationObserver(() => window.ftHydrateIcons());
+  mo.observe(document.getElementById('root'), { childList: true, subtree: true });
+  setTimeout(() => window.ftHydrateIcons(), 300);
+</script>
+</body>
+</html>

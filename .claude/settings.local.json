@@ -16,7 +16,22 @@
       "Bash(\"/c/Users/a.goudinoux/AppData/Local/Programs/Python/Python314/python.exe\" mirror.py)",
       "Bash(rmdir site *)",
       "Bash(rm -rf site)",
-      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)"
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo view AntoineGDX/frenchthermic)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api repos/AntoineGDX/frenchthermic/contents/)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api repos/AntoineGDX/frenchthermic)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo edit AntoineGDX/frenchthermic --visibility public --accept-visibility-change-consequences)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api -X POST repos/AntoineGDX/frenchthermic/pages -f \"source[branch]=main\" -f \"source[path]=/\")",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" api repos/AntoineGDX/frenchthermic/pages/builds/latest)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://antoinegdx.github.io/frenchthermic/)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Read(//tmp/**)",
+      "Bash(tar -tzf design.tar.gz)",
+      "Bash(mkdir -p design-preview)",
+      "Bash(cp -r /tmp/design/french-thermic/project/* design-preview/)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" --version)",
+      "Bash(\"/c/Users/a.goudinoux/AppData/Local/Programs/Python/Python314/python.exe\" -m http.server 8123)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8123/ui_kits/website/index.html)"
     ]
   }
 }
